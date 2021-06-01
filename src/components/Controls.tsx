@@ -5,7 +5,7 @@ import type { AppState } from '../types'
 import { DetailRadio } from './controls/DetailRadio'
 import { LengthSlider } from './controls/LengthSlider'
 import { PriorityList } from './controls/PriorityList'
-import { DownloadButton, SourceButton } from './controls/Buttons'
+import { DownloadButton, SourceButton, ResetButton } from './controls/Buttons'
 
 export const Controls: FC<{ store: Store<AppState> }> = ({ store }) => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -18,6 +18,7 @@ export const Controls: FC<{ store: Store<AppState> }> = ({ store }) => (
           <Grid container direction="column" spacing={3}>
             <DownloadButton store={store} />
             <SourceButton />
+            <ResetButton store={store} />
           </Grid>
         </Grid>
       </Grid>

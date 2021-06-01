@@ -3,6 +3,7 @@ import { Button } from '@material-ui/core'
 import { Store } from '@lauf/lauf-store'
 import type { AppState } from '../../types'
 import { downloadPdf } from '../../util'
+import { INITIAL_APPSTATE } from '../../logic'
 
 const BUTTON_DEFAULTS = {
   variant: 'contained',
@@ -21,6 +22,12 @@ export const DownloadButton: FC<{ store: Store<AppState> }> = ({ store }) => (
       </Button>
     )}
   </>
+)
+
+export const ResetButton: FC<{ store: Store<AppState> }> = ({ store }) => (
+  <Button {...BUTTON_DEFAULTS} onClick={() => store.write(INITIAL_APPSTATE)}>
+    Reset
+  </Button>
 )
 
 export const SourceButton: FC = () => (
