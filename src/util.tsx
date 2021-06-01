@@ -3,7 +3,7 @@ import type { AppState, Entry, ScoreName, Scorer, Tag } from './types'
 import React from 'react'
 import { saveAs } from 'file-saver'
 import { pdf } from '@react-pdf/renderer'
-import { Resume } from './components/Resume'
+import { Resume } from './components'
 
 const LAUNCH_TIME = new Date().getTime()
 const SCORERS: Record<ScoreName, Scorer> = {
