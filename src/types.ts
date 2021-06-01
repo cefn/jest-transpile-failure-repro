@@ -11,10 +11,19 @@ export interface Entry {
   boost?: number
 }
 
+export interface AppState {
+  detail: Detail
+  scorePriority: ScoreName[]
+  limit: number
+  priorityEntries: Entry[]
+}
+
 export type Tag = typeof TAGS[number]
 export type Discipline = typeof DISCIPLINES[number]
 export type Technology = typeof TECHNOLOGIES[number]
 export type Category = typeof CATEGORIES[number]
+
+export type Detail = keyof typeof DETAILS
 
 /** Score operator (defines numerical scales ascending by number) */
 export type Scorer = (entry: Immutable<Entry>) => number
@@ -76,3 +85,10 @@ export const TECHNOLOGIES = [
 ] as const
 
 export const TAGS = [...CATEGORIES, ...DISCIPLINES, ...TECHNOLOGIES] as const
+
+export const DETAILS = {
+  Minimum: ['org'],
+  Title: ['org', 'title'],
+  Summary: ['org', 'title', 'intro'],
+  Full: ['org', 'title', 'intro', 'body'],
+} as const
